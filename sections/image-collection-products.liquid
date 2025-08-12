@@ -1,0 +1,106 @@
+{{- 'image-collection-products.css' | asset_url | stylesheet_tag: preload: true -}}
+<!-- image-collection-product/section -->
+<section class="container products-grid-section">
+  {% if section.settings['main-title'] != blank %}
+    <h2 class="shopBylook">{{ section.settings['main-title'] }}</h2>
+  {% endif %}
+  <div class="container container-products-grid">
+    <!-- Left Image -->
+    <div class="left-section">
+      <img
+        src="{{ section.settings.left_image | image_url: width: 476 }}"
+        width="476"
+        height="686"
+        alt="{{ section.settings.left_image.alt | default: 'Image' | escape }}"
+        loading="lazy"
+      >
+    </div>
+
+    <!-- Right Product Grid Section -->
+    <div class="swiper-container right-section">
+      <div class="swiper-wrapper--p">
+        {% for product in section.settings.collections.products limit: 4 %}
+          <div class="swiper-slide product-card-custom">
+            <a href="{{ product.url }}" class="product-image_url">
+              <img
+                src="{{ product.featured_image | image_url: width: 240 }}"
+                width="240"
+                height="240"
+                alt="{{ product.title | escape }}"
+                class="product-image"
+                loading="lazy"
+              >
+            </a>
+
+            <div class="product-details-custom">
+              {% if product.compare_at_price > product.price %}
+                <div class="discount-badge-custom">
+                  Save
+                  {{
+                    product.compare_at_price
+                    | minus: product.price
+                    | times: 100
+                    | divided_by: product.compare_at_price
+                    | round
+                  -}}
+                  %
+                </div>
+              {% endif %}
+              <p class="para">{{ product.title | link_to: product.url }}</p>
+
+              <p class="price-custom">
+                {{ product.price | money | remove: '.00' }}
+                {% if product.compare_at_price > product.price %}
+                  <span class="original-price">{{ product.compare_at_price | money | remove: '.00' }}</span>
+                {% endif %}
+              </p>
+
+              {%- form 'product', product, is: 'product-form' -%}
+                <input type="hidden" name="on_success" value="force_open_drawer">
+                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <button type="submit" class="product-card__quick-add-button add-to-cart-custom">
+                  <p class="product_button_with-price">
+                    <span class="sr-only">{{ 'product.general.add_to_cart_button' | t }}</span>
+                    {{ 'Add to Bag' }}
+                  </p>
+                </button>
+              {%- endform -%}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- end here right section -->
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "image collection products",
+  "settings": [
+    {
+          "type": "text",
+          "id": "main-title",
+          "label": "Title",
+           "default":"Shop By Look"
+        },
+    {
+          "type": "image_picker",
+          "id": "left_image",
+          "label": "Choose Your Image"
+        },
+      {
+          "type": "collection",
+          "id": "collections",
+          "label": "Add Your preffered collection"
+        },
+  ],
+  "presets": [
+    {
+      "name": "image collection products"
+    }
+  ]
+}
+{% endschema %}

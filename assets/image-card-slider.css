@@ -1,0 +1,99 @@
+.swiper-container-image {
+  width: 100%;
+  height: auto;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.image-card-slider-main {
+  background-color: #9b7b8d;
+}
+
+.swiper-slide {
+  position: relative;
+  text-align: center;
+}
+
+.swiper-container-image .image-card-heading {
+  color: #fff;
+  font-family: Segoe UI;
+  font-size: clamp(21px, 2vw, 50px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
+  padding: 0px 0px 13px 0px;
+  border-bottom: 1px solid #dcd9d9;
+  margin-bottom: 1rem;
+}
+
+.slide-content img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.slide-content {
+  position: relative;
+  height: 100%;
+}
+
+.text-overlay-image {
+  position: absolute;
+  bottom: 2%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  max-width: 80%;
+}
+
+.text-overlay-image .step_title {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: clamp(30px, 2vw, 15px);
+  line-height: normal;
+}
+
+.text-overlay-image .step_description {
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+a.shop-button {
+  padding: 6px 29px;
+  border-radius: 4px;
+  background: #f6ddf3;
+}
+
+.shop-button:hover {
+  background-color: #555;
+}
+
+.swiper-container-image .swiper-button-next,
+.swiper-container-image .swiper-button-prev {
+  color: #fff;
+  background-color: #9b7b8d;
+  border-radius: 50%;
+  height: clamp(25px, 2vw, 70px);
+  width: clamp(25px, 2vw, 70px);
+  z-index: 1;
+}
+
+.swiper-container-image .swiper-button-next:after,
+.swiper-container-image .swiper-button-prev:after {
+  font-size: 15px;
+}
+@media (max-width: 767px) {
+  .text-overlay-image {
+    position: unset;
+    transform: unset;
+    text-align: center;
+    max-width: 100%;
+    padding: 8px 0px;
+  }
+
+  a.shop-button {
+    padding: 4px 15px;
+  }
+}

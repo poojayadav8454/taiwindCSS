@@ -1,0 +1,83 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message-1": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "Add 3 Products & Get 30% OFF on Premium Makeup!"
+          }
+        },
+        "message_7ai9aa": {
+          "type": "message",
+          "settings": {
+            "text": "Free Eyeliner on Orders Over ₹799!"
+          }
+        },
+        "message_qtM7RC": {
+          "type": "message",
+          "settings": {
+            "text": "Free Eyeliner and Liquid lipstick on Orders Over ₹1499!"
+          }
+        }
+      },
+      "block_order": [
+        "message-1",
+        "message_7ai9aa",
+        "message_qtM7RC"
+      ],
+      "custom_css": [],
+      "settings": {
+        "color_scheme": "scheme-afacdd14-8651-4178-ab13-1b5d3f5473b8",
+        "enable_sticky": false,
+        "autoplay": true,
+        "cycle_speed": 10,
+        "desktop_font_size": 14,
+        "mobile_font_size": 11
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "enable_sticky": true,
+        "show_separation_border": true,
+        "reduce_padding": true,
+        "logo": "shopify://shop_images/logo_fix.png",
+        "logo_max_width": 140,
+        "logo_mobile_max_width": 110,
+        "menu": "main-menu",
+        "sidebar_menu": "",
+        "menu_open_trigger": "hover",
+        "enable_search": true,
+        "sidebar_color_scheme": "",
+        "sidebar_text_font": "heading",
+        "sidebar_show_dividers": true,
+        "layout": "logo_center_navigation_below",
+        "show_icons": true,
+        "show_country_selector": true,
+        "show_country_name": false,
+        "show_country_flag": true,
+        "show_locale_selector": false,
+        "transparent_header_text_color": "#ffffff"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header"
+  ]
+}

@@ -1,0 +1,78 @@
+
+  .promotion-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .promotion-item {
+    width: calc(50% - 4px);
+    text-align: center;
+  }
+
+  .promotion-item img {
+    width: auto;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+  }
+
+  .promotion-item h3 {
+    margin-top: 24px;
+    font-size: clamp(20px, 2vw, 32px);
+    line-height: normal;
+    font-weight: bold;
+  }
+
+  .promotion-item p {
+     font-size: clamp(13px, 2vw, 20px);
+    color: #868686;
+    margin: 8px 0px 32px 0px;
+    font-family: Roboto;
+    margin-bottom: 1.5rem;
+  }
+
+  .shop-now-button {
+    display: inline-block;
+    padding: 14px 0;
+    background-color: #fff;
+    width: 100%;
+    max-width: 500px;
+    font-weight: 600;
+    letter-spacing: 0;
+    color: #000;
+    text-transform: capitalize;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 0.8px solid #4D4D4D;
+  }
+
+  .shop-now-button:hover {
+    background-color: #000;
+    color:#fff;
+  }
+@media (max-width: 768px) {
+  .promotion-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+.promotion-section.container{
+  margin-inline-start:unset;
+  margin-inline-end: unset;
+}
+ 
+  .promotion-item {
+    width: 100%;
+  }
+
+  .promotion-item img {
+    width: 100%;
+    height: auto;
+  }
+
+  .shop-now-button {
+    width: 90%;
+    padding: 12px 0;
+  }
+  
+}

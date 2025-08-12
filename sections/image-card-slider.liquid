@@ -1,0 +1,164 @@
+<!-- image-card-slider/section -->
+{{- 'image-card-slider.css' | asset_url | stylesheet_tag: preload: true -}}
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+<div class="custom-image-slider container section-{{ section.id }}-padding">
+  <div class="swiper-container-image">
+    {% if section.settings['main-title'] != blank %}
+      <h2 class="image-card-heading">{{ section.settings['main-title'] }}</h2>
+    {% endif %}
+    <div class="s__slider">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide">
+            <div class="slide-content">
+              {% if block.settings.step_image != blank %}
+                <img src="{{ block.settings.step_image | img_url: 'master' }}" alt="Step Image">
+              {% endif %}
+              <div class="text-overlay-image">
+                {% if block.settings.step_title != blank %}
+                  <p class="step_title">{{ block.settings.step_title }}</p>
+                {% endif %}
+                {% if block.settings.step_description != blank %}
+                  <p class="step_description ">{{ block.settings.step_description }}</p>
+                {% endif %}
+                {% if block.settings.step_button_text != blank %}
+                  <a href="{{ block.settings.step_link }}" class="shop-button">
+                    {{- block.settings.step_button_text -}}
+                  </a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "image card slider",
+  "class": "image-card-slider-main",
+  "settings": [
+    {
+          "type": "text",
+          "id": "main-title",
+          "label": "Title",
+           "default":"Shop the Power–Pair"
+        },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "step_image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "step_title",
+          "label": "Image Title",
+          "default":"Step 1"
+        },
+       {
+        "type": "textarea",
+        "id": "step_description",
+        "label": "Image Description",
+        "default": "<p>Line it on your eye</p>"
+      },
+        {
+          "type": "url",
+          "id": "step_link",
+          "label": "Image Link"
+        },
+        {
+          "type": "text",
+          "id": "step_button_text",
+          "label": "Button Text",
+          "default": "Shop Now"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "image card slider",
+
+    }
+  ]
+}
+{% endschema %}
+
+<script>
+    new Swiper('.s__slider', {
+    loop: false,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    slidesPerView: 4,
+    spaceBetween: 10,
+    slidesOffsetBefore: 0,
+    grabCursor: true,
+    paginationClickable: true,
+    breakpoints: {
+            1920: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            1028: {
+                slidesPerView: 3,
+                spaceBetween: 30,
+            },
+            768: {
+                slidesPerView: 2,
+                spaceBetween: 20,
+            },
+            480: {
+                slidesPerView: 2,
+                spaceBetween: 15,
+            },
+            320: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+            },
+        },
+  });
+</script>
