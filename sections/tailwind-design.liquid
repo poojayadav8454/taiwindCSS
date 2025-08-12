@@ -1,0 +1,50 @@
+<!-- /sections/custom-text-section.liquid -->
+
+<div class=" flex justify-center items-center custom-text-section container  mx-auto  bg-amber-200 mt-4 md:mt-8 lg:mt-16 ">
+  <div class="lg:w-1/2   mx-auto p-2  md:p-2 lg:p-2">
+    <h2 class="text-blue-800 pt-6 md:pt-6 lg:pt-8  pb-1 md:pb-1 lg:pb-1  pl-4 md:pl-6 lg:pl-8 ">
+      {{ 'Heading of this
+            section in tailwind' }}
+    </h2>
+    <p class="text-amber-500 pl-4 md:pl-6 lg:pl-8">{{ section.settings.text_content }}</p>
+  </div>
+  <div class="lg:w-1/2 ">
+    {% if section.settings.image != blank %}
+      {{
+        section.settings.image
+        | image_url: width: 400
+        | image_tag: alt: section.settings.image_alt, class: 'rounded-lg shadow-lg  mx-auto'
+      }}
+    {% else %}
+      <p>No image selected.</p>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom text section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_content",
+      "label": "Text content",
+      "default": "This is my custom text."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Upload image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom text tailwind",
+      "category": "Custom",
+      "settings": {
+        "text_content": "This is my custom text."
+      }
+    }
+  ]
+}
+{% endschema %}
