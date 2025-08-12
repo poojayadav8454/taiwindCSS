@@ -794,7 +794,14 @@
           "settings": {
             "title": "#LAGlowUp",
             "title_color": "",
+            "title_size_v2": 0,
             "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
             "background_color": "",
             "feed_id": "",
             "html_area": ""
@@ -834,7 +841,14 @@
           "settings": {
             "title": "",
             "title_color": "",
+            "title_size_v2": 0,
             "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
             "background_color": "",
             "feed_id": "",
             "html_area": ""
@@ -850,10 +864,18 @@
         "remove_vertical_spacing": false,
         "remove_horizontal_spacing": false
       }
+    },
+    "tailwind_design_6GRYbE": {
+      "type": "tailwind-design",
+      "name": "Custom text tailwind",
+      "settings": {
+        "text_content": "This is my custom text."
+      }
     }
   },
   "order": [
     "slideshow",
+    "tailwind_design_6GRYbE",
     "shop_categories_e4yaAa",
     "rich_text_GM97c3",
     "multi-column",
